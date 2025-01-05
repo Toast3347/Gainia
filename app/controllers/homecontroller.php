@@ -1,10 +1,10 @@
 <?php
-namespace App\Controllers;
+require __DIR__ . '/controller.php';
 
-class homecontroller
-{
-    public function index()
-    {
+class HomeController extends Controller {
+    public function index() {
         require __DIR__ . '/../views/home/index.php';
     }
+
 }
+?>
