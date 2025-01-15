@@ -19,7 +19,7 @@ include __DIR__ . '/../header.php';
 <main>
     <div class="container mt-5">
         <h2 class="text-center">Create account</h2>
-        <form action="/submit-login" method="POST">
+        <form action="/createaccount/submit" method="POST">
 
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
