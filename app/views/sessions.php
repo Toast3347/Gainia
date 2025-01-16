@@ -4,7 +4,7 @@
         <thead class="table-dark">
             <tr>
                 <th>Date</th>
-                <th>Type</th>
+                <th>Workout</th>
                 <th>Duration</th>
                 <th>Action</th>
             </tr>
@@ -17,7 +17,8 @@
                         <td><?= htmlspecialchars($session->getName()); ?></td>
                         <td><?= htmlspecialchars($session->getTime()); ?> hours</td>
                         <td>
-                            <form method="POST" action="/delete-session" onsubmit="return confirm('Are you sure you want to delete this session?');">
+                            <button type="submit" class="btn btn-secondary btn-sm">Edit</button>
+                            <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete this session?');">
                                 <input type="hidden" name="delete_id" value="<?= htmlspecialchars($session->getId()); ?>" />
                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                             </form>
