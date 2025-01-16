@@ -32,10 +32,11 @@ services:
         image: phpmyadmin:latest
         environment:
             PMA_HOST: mysql
-            PMA_USER: root
-            PMA_PASSWORD: secret123
+            PMA_USER: root              #remove before handing in and put in README
+            PMA_PASSWORD: secret123     #remove before handing in and put in README    (otherwise you can access phpmyadmin freely)
         ports:
             - 8080:80
+        restart: unless-stopped
 
 volumes:
     mysqldata: {}
