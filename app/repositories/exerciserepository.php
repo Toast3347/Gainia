@@ -6,22 +6,22 @@ class ExcerciseRepository extends Repository
 {
         function getAll()
         {
-
                 $stmt = $this->connection->prepare("SELECT * FROM exercises");
                 $stmt->execute();
-
                 $stmt->setFetchMode(PDO::FETCH_CLASS, 'Exercise');
                 $exercises = $stmt->fetchAll();
-
                 return $exercises;
-
         }
 
         function insert($exercise)
         {
-                $stmt = $this->connection->prepare("INSERT into artiasdasdsadsadsafvsdgvbszxcle (title, content, author, posted_at) VALUES (?,?,?, NOW())");
-
-                $stmt->execute([$exercise->getTitle(), $exercise->getContent(), $exercise->getAuthor()]);
-
+                $stmt = $this->connection->prepare("INSERT INTO exercises (name, muscle_group, description, user_id) VALUES (?, ?, ?, ?)");
+                $stmt->execute([
+                $exercise->getName(),
+                $exercise->getMuscleGroup(),
+                $exercise->getDescription(),
+                $exercise->getUserId()
+                ]);
         }
 }
+?>

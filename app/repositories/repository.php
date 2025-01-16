@@ -1,5 +1,4 @@
 <?php
-
 class Repository {
 
     protected $connection;

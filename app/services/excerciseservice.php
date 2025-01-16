@@ -1,7 +1,5 @@
 <?php
 require __DIR__ . '/../repositories/exerciserepository.php';
-
-
 class ExcerciseService {
     public function getAll() {
         // retrieve data
