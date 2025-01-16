@@ -1,44 +1,32 @@
 <?php
 require __DIR__ . '/controller.php';
-require __DIR__ . '/dbconnectioncontroller.php';
+require __DIR__ . '/../services/createaccountservice.php';
 
 class CreateAccountController extends Controller {
+    private $accountService;
+    function __construct()
+        {
+            $this->accountService = new CreateAccountService();
+        }
     public function index() {
         require __DIR__ . '/../views/create-account/create-account.php';
-    }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            
+            $email = htmlspecialchars($_POST['email']);
+            $password = htmlspecialchars($_POST['password']);
+            $height = htmlspecialchars($_POST['height']);
+            $weight = htmlspecialchars($_POST['weight']);
+            $age = htmlspecialchars($_POST['age']);
+        
+            $user = new User();
+            $user->setUserName($email);
+            $user->setPassword($password);
+            $user->setHeight($height);
+            $user->setWeight($weight);
+            $user->setAge($age);
 
-    public function Submit() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $age = $_POST['age'];
-            $height = $_POST['height'];
-            $weight = $_POST['weight'];
-
-            if ($email && $password && $age && $height && $weight) {
-
-                $this->saveUserData($email, $password, $age, $height, $weight);
-
-                header('Location: /dashboard');
-                exit;
-            } else {
-                echo "Please fill out all fields.";
-            }
+            $this->accountService->insert($user);
         }
-    }
-
-    private function saveUserData($email, $password, $age, $height, $weight) {
-
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $database = new dbconnectioncontroller();
-        $db = $database->getDatabaseConnection();
-        $stmt = $db->prepare("INSERT INTO users (email, password, age, height, weight) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssidd", $email, $hashedPassword, $age, $height, $weight);
-        $stmt->execute();
-        $stmt->close();
-    }
-
-    
+    }   
 }
 ?>

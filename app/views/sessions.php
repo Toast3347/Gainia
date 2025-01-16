@@ -10,15 +10,15 @@
             </tr>
         </thead>
         <tbody>
-            <?php if (!empty($result) && is_array($result)): ?>
-                <?php foreach ($result as $row): ?>
+            <?php if (!empty($sessions) && is_array($sessions)): ?>
+                <?php foreach ($sessions as $session): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($row['date']); ?></td>
-                        <td><?php echo htmlspecialchars($row['type']); ?></td>
-                        <td><?php echo htmlspecialchars($row['duration']); ?> mins</td>
+                        <td><?= htmlspecialchars($session->getDate()); ?></td>
+                        <td><?= htmlspecialchars($session->getName()); ?></td>
+                        <td><?= htmlspecialchars($session->getTime()); ?> hours</td>
                         <td>
-                            <form method="POST" action="gym-sessions.php" onsubmit="return confirm('Are you sure you want to delete this session?');">
-                                <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($row['id']); ?>" />
+                            <form method="POST" action="/delete-session" onsubmit="return confirm('Are you sure you want to delete this session?');">
+                                <input type="hidden" name="delete_id" value="<?= htmlspecialchars($session->getId()); ?>" />
                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                             </form>
                         </td>
@@ -26,7 +26,7 @@
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="4" class="text-center text-muted">No gym sessions found.</td>
+                    <td colspan="4" class="text-center text-muted">No sessions found.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
