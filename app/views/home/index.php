@@ -28,9 +28,18 @@
             </div>
         </section>
 
-        <?php
-        include __DIR__ . '/../sessions.php';
-        ?>
+        <div class="container mt-5 d-flex">
+            <div class="sessions-container">
+                <?php
+                include __DIR__ . '/../sessions.php';
+                ?>
+            </div>
+            <div class="stats-container">
+            <?php
+            include __DIR__ . '/../stats.php';
+            ?>
+            </div>
+        </div>
     </main>
 
     <?php

@@ -1,5 +1,7 @@
 <div class="container mt-5">
-    <h2 class="text-center mb-4">Your Gym Sessions</h2>
+    <div class="text-center mb-4">
+        <h2>Your Gym Sessions</h2>
+    </div>
     <table class="table table-striped table-bordered table-hover text-center">
         <thead class="table-dark">
             <tr>
