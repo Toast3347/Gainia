@@ -13,6 +13,17 @@ class SessionRepository extends Repository
                 return $sessions;
         }
 
+        function getFromUser($user)
+        {       
+                $id = $user->getId();
+                $stmt = $this->connection->prepare("SELECT * FROM workouts WHERE user_id = :user_id");
+                $stmt->bindParam(':user_id', $id, PDO::PARAM_STR);
+                $stmt->execute();
+                $stmt->setFetchMode(PDO::FETCH_CLASS, 'workout');
+                $sessions = $stmt->fetchAll();
+                return $sessions;
+        }
+
         function insert($exercise)
         {
                 $stmt = $this->connection->prepare("INSERT INTO exercises (name, muscle_group, description, user_id) VALUES (?, ?, ?, ?)");

@@ -4,7 +4,6 @@ class user {
     private $id;
     private $username;
     private $password;
-    private $salt;
     private $height;
     private $weight;
     private $age;
@@ -12,6 +11,12 @@ class user {
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function setId($id): self
+    {
+        $this->id = $id;
+        return $this;
     }
 
     public function getUserName(): string
@@ -31,21 +36,16 @@ class user {
         return $this->password;
     }
 
-    public function checkPassword(): string
-    {
-        return $this->password . $this->salt;
-    }
-
     public function setPassword(string $password): self
     {
-        $salt = bin2hex(random_bytes(16));
         $this->password = password_hash($password, PASSWORD_DEFAULT);
-        $this->salt = $salt;
         return $this;
     }
 
-    public function getSalt(){
-        return $this->salt;
+    public function setPasswordOnLogin(string $password) :self
+    {
+        $this->password = $password;
+        return $this;
     }
 
     public function getHeight(): string

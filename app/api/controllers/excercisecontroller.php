@@ -8,10 +8,10 @@
         {
             $this->excerciseService = new ExcerciseService();
         }
-        // router maps this to /api/article automatically
+        // router maps this to /api/excercise automatically  ps i know it is spelled exercise but i am stupid and it works now
         public function index()
         {
-            // Respond to a GET request to /api/article
+            // Respond to a GET request to /api/excercise
             if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $excercises = $this->excerciseService->getAll();
                 $json = json_encode($excercises);
@@ -19,13 +19,13 @@
                 echo $json;
             }
 
-            // Respond to a POST request to /api/article
+            // Respond to a POST request to /api/excercise
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                // read JSON from the request, convert it to an article object
-                // and have the service insert the article into the database
+                // read JSON from the request, convert it to an exercie object
+                // and have the service insert the excercise into the database
                 $json = file_get_contents('php://input');
                 $object = json_decode($json);
-                // change for excercise
+
                 $excercise = new Exercise();
                 $excercise->setName($object->name);
                 $excercise->setMuscleGroup($object->muscleGroup);

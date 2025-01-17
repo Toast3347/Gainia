@@ -4,8 +4,14 @@ class SessionService {
     public function getAll() {
         // retrieve data
         $repository = new SessionRepository();
-        $goals = $repository->getAll();
-        return $goals;
+        $sessions = $repository->getAll();
+        return $sessions;
+    }
+    public function getFromUser($user) {
+        // retrieve data
+        $repository = new SessionRepository();
+        $sessions = $repository->getFromUser($user);
+        return $sessions;
     }
 
     public function insert($goal) {
