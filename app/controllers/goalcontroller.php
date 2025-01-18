@@ -1,6 +1,8 @@
 <?php
 require __DIR__ . '/controller.php';
 require __DIR__ . '/../services/goalservice.php';
+require_once __DIR__ . '/../models/goal.php';
+session_start();
 
 class GoalController extends Controller {
     private $goalService;
@@ -9,9 +11,10 @@ class GoalController extends Controller {
             $this->goalService = new GoalService();
         }
     public function index() {
+        $user = $_SESSION['user'];
         require __DIR__ . '/../views/create-account/create-account.php';
 
-        $articles = $this->goalService->getAll($user_id);
+        $goals = $this->goalService->getAll($user);
         $this->displayView($user_id);
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -24,7 +27,7 @@ class GoalController extends Controller {
         
             $goal = new Goal();
             $goal->setUserId($user_id);
-            $goal->setExcercise($exercise);
+            $goal->setExercise($exercise);
             $goal->setTarget($target);
             $goal->setDeadline($deadline);
             $goal->setStatus($status);

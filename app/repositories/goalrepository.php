@@ -4,8 +4,9 @@ require __DIR__ . '/../models/goal.php';
 
 class GoalRepository extends Repository
 {
-        function getAll($user_id)
+        function getAll($user)
         {
+                $user_id = $user->getId();
                 $stmt = $this->connection->prepare("SELECT * FROM goals WHERE id = :user_id");
                 $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
                 $stmt->execute();
@@ -14,14 +15,15 @@ class GoalRepository extends Repository
                 return $goals;
         }
 
-        function insert($exercise)
+        function insert($goal)
         {
-                $stmt = $this->connection->prepare("INSERT INTO exercises (name, muscle_group, description, user_id) VALUES (?, ?, ?, ?)");
+                $stmt = $this->connection->prepare("INSERT INTO exercises (user_id, exercise_id, target, deadline,status) VALUES (?, ?, ?, ?, ?)");
                 $stmt->execute([
-                $exercise->getName(),
-                $exercise->getMuscleGroup(),
-                $exercise->getDescription(),
-                $exercise->getUserId()
+                $goal->getUserId(),
+                $goal->getExerciseId(),
+                $goal->getTarget(),
+                $goal->getDeadline(),
+                $goal->getStatus()
                 ]);
         }
 }
