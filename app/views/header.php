@@ -10,11 +10,10 @@
       
       <div class = "container-fluid d-flex align-items-center">
       <?php
-        if (isset($_SESSION['user'])) { echo '<a class="nav-link me-3" href="/dashboard">Dashboard</a>';
+        if (isset($_SESSION['user'])) { echo '<a class="nav-link me-3" href="/dashboard">Dashboard</a> <a class="nav-link" href="/statistics">Statistics</a> ';
         } 
-        else {echo '<a class="nav-link me-3" href="/notloggedin">Dashboard</a>';}
+        else {echo '<a class="nav-link me-3" href="/notloggedin">Dashboard</a> <a class="nav-link me-3" href="/notloggedin">Statistics</a>';}
         ?>
-        <a class="nav-link" href="/statistics">Statistics</a>  
       </div>
       <?php
       if (isset($_SESSION['user'])) { echo '<a href="/home" class="btn btn-warning d-flex me-3">Logout</a>';

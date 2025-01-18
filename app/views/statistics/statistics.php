@@ -16,7 +16,9 @@
 include __DIR__ . '/../header.php';
 ?>
 <main>
-
+    <div class="container"> 
+        <?php include __DIR__ . '/../goals.php';?>
+    </div>
 
 </main>
 <?php

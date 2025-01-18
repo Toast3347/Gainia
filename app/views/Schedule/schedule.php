@@ -16,35 +16,11 @@
     <?php
     include __DIR__ . '/../header.php';
     ?>
-
+    
     <main>
-        <section class="py-2 mb-5 text-center container-fluid bg-light border border dark">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Gainia</h1>
-                    <p class="lead text-body-secondary">Your fitness pall</p>
-                    <a href="/createaccount" class="btn btn-dark">Create account</a>
-                </div>
-            </div>
-        </section>
-
-        <div class="container mt-5 d-flex">
-            <div class="container">
-                <?php
-                include __DIR__ . '/../goals.php';
-                ?>
-            </div>
-            <div class="sessions-container">
-                <?php
-                include __DIR__ . '/../sessions.php';
-                ?>
-            </div>
-            <div class="stats-container">
-            <?php
-            include __DIR__ . '/../stats.php';
-            ?>
-            </div>
-        </div>
+        <?php
+            include __DIR__ . '/../sessions.php';
+        ?>
     </main>
 
     <?php
@@ -52,6 +28,6 @@
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    
+
 </body>
 </html>

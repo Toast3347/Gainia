@@ -1,3 +1,4 @@
+<!--This is thew session code adapt this for the schedule-->
 <div class="container mt-5">
     <div class="text-center mb-4">
         <h2>Your Gym Sessions</h2>
@@ -53,7 +54,7 @@
                                 Edit
                             </button>
                         <td>
-                            <form method="POST" action="/dashboard/deleteSession" onsubmit="return confirm('Are you sure you want to delete this session?');">
+                            <form method="POST" action="/schedule/deleteSession" onsubmit="return confirm('Are you sure you want to delete this session?');">
                                 <input type="hidden" name="delete_id" value="<?= htmlspecialchars($session->getId()); ?>" />
                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                             </form>
@@ -77,7 +78,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/dashboard/addSession">
+                <form method="POST" action="/schedule/addSession">
                     <div class="mb-3">
                         <label for="addDate" class="form-label">Date</label>
                         <input type="date" class="form-control" id="addDate" name="date" required>
@@ -122,7 +123,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/dashboard/editSession">
+                <form method="POST" action="/schedule/editSession">
                     <input type="hidden" id="editId" name="id">
                     <div class="mb-3">
                         <label for="editDate" class="form-label">Date</label>

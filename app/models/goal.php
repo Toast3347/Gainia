@@ -2,10 +2,30 @@
     class goal{
         private $id;
         private $user_id;
-        private $excercise_id;
+        private $exercise_id;
         private $target;
         private $deadline;
         private $status;
+        private $exercise_name;
+
+
+        public function getExerciseName(): string
+        {
+            return $this->exercise_name;
+        }
+    
+        public function setExerciseName(string $exercise_name): self
+        {
+            $this->exercise_name = $exercise_name;
+            return $this;
+        }
+
+        public function setId(string $Id): self
+        {
+            $this->id = $Id;
+
+            return $this;
+        }
 
         public function getId(): int
         {
@@ -27,14 +47,14 @@
 
         public function setExercise(int $excercise_id): self
         {
-            $this->excercise_id = $excercise_id;
+            $this->exercise_id = $excercise_id;
 
             return $this;
         }
 
         public function getExcercise(): int
         {
-            return $this->excercise_id;
+            return $this->exercise_id;
         }
 
         public function setTarget(int $target): self

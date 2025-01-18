@@ -1,17 +1,36 @@
 <?php
 require __DIR__ . '/../repositories/goalrepository.php';
 class GoalService {
-    public function getAll($user) {
-        // retrieve data
-        $repository = new GoalRepository();
-        $goals = $repository->getAll($user);
-        return $goals;
+    private $repository;
+
+    public function __construct()
+    {
+        $this->repository = new GoalRepository();;
     }
 
-    public function insert($goal) {
-        // retrieve data
-        $repository = new GoalRepository();
-        $repository->insert($goal);        
+    public function getGoals($user)
+    {
+        return $this->repository->getAllForUser($user);
+    }
+
+    public function getAll()
+    {
+        return $this->repository->getAll();
+    }
+
+    public function addGoal($goal)
+    {
+        $this->repository->insert($goal);
+    }
+
+    public function editGoal($goal)
+    {
+        $this->repository->update($goal);
+    }
+
+    public function deleteGoal($goal)
+    {
+        $this->repository->delete($goal);
     }
 }
 
