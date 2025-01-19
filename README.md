@@ -29,6 +29,8 @@ Password secret123
 
 insert provided sql sqript into phpmyadmin.
 
+if gainia db is in phpmyadmin use gainiadb.sql to import else if it isn't showing up use mysql.sql to import the entire database
+
 then go to localhost for the main application.
 
 http://localhost/api/excercise for the api thing.
