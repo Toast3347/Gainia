@@ -48,7 +48,7 @@ class user {
         return $this;
     }
 
-    public function getHeight(): string
+    public function getHeight(): int
     {
         return $this->height;
     }
@@ -60,7 +60,7 @@ class user {
         return $this;
     }
 
-    public function getWeight(): string
+    public function getWeight(): int
     {
         return $this->weight;
     }

@@ -26,7 +26,7 @@ class GoalRepository extends Repository
 
         function insert($goal)
         {
-                $stmt = $this->connection->prepare("INSERT INTO exercises (user_id, exercise_id, target, deadline,status) VALUES (?, ?, ?, ?, ?)");
+                $stmt = $this->connection->prepare("INSERT INTO goals (user_id, exercise_id, target, deadline,status) VALUES (?, ?, ?, ?, ?)");
                 $stmt->execute([
                 $goal->getUserId(),
                 $goal->getExerciseId(),
@@ -48,12 +48,10 @@ class GoalRepository extends Repository
             ]);
         }
 
-        function delete($goal)
+        function delete($goalId)
         {
-                $goalId = $goal->getId();
-                $userId = $goal->getUserId();
-                $stmt = $this->connection->prepare("DELETE FROM goals WHERE id = ? AND user_id = ?");
-                $stmt->execute([$goalId, $userId]);
+                $stmt = $this->connection->prepare("DELETE FROM goals WHERE id = ?");
+                $stmt->execute([$goalId]);
         }
 }
 ?>

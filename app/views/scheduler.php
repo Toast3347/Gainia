@@ -1,4 +1,4 @@
-<!--This is thew session code adapt this for the schedule-->
+<!--NOT FUNCTIONAL-->
 <div class="container mt-5">
     <div class="text-center mb-4">
         <h2>Your Gym Sessions</h2>

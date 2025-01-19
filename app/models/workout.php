@@ -3,9 +3,9 @@
 class workout {
     private $id;
     private $user_id;
-    private $name;
-    private $date;
-    private $time;
+    public $name;
+    public $date;
+    public $time;
     
     public function getId() {
         return $this->id;
@@ -26,4 +26,30 @@ class workout {
     public function getTime() {
         return $this->time;
     }
+
+    public function setId($id) 
+    { 
+        $this->id = $id;
+    }
+
+    public function setUserId($userId) {
+        $this->user_id = $userId;
+        return $this;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function setDate($date) {
+        $this->date = $date;
+        return $this;
+    }
+
+    public function setTime($time) {
+        $this->time = $time;
+        return $this;
+    }
+
 }

@@ -10,7 +10,7 @@
       
       <div class = "container-fluid d-flex align-items-center">
       <?php
-        if (isset($_SESSION['user'])) { echo '<a class="nav-link me-3" href="/dashboard">Dashboard</a> <a class="nav-link" href="/statistics">Statistics</a> ';
+        if (isset($_SESSION['user'])) { echo '<a class="nav-link me-3" href="/dashboard">Dashboard</a> <a class="nav-link me-3" href="/goals">Goals</a> <a class="nav-link me-3" href="/exercise">Exercises</a>'; //<a class="nav-link me-3" href="/routine">Routines</a> can't get it working so i won't include it
         } 
         else {echo '<a class="nav-link me-3" href="/notloggedin">Dashboard</a> <a class="nav-link me-3" href="/notloggedin">Statistics</a>';}
         ?>

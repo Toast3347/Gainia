@@ -28,9 +28,9 @@ class GoalService {
         $this->repository->update($goal);
     }
 
-    public function deleteGoal($goal)
+    public function deleteGoal($goalId)
     {
-        $this->repository->delete($goal);
+        $this->repository->delete($goalId);
     }
 }
 

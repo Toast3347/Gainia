@@ -19,6 +19,7 @@ class HomeController extends Controller {
     public function index() {
         $sessions = $this->sessionService->getAll();
         $goals = $this->goalsService->getAll();
+        $bmi =22;
         require __DIR__ . '/../views/home/index.php';
     }
 

@@ -52,7 +52,7 @@
             return $this;
         }
 
-        public function getExcercise(): int
+        public function getExerciseId(): int
         {
             return $this->exercise_id;
         }
